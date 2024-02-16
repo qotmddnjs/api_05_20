@@ -219,6 +219,52 @@ ON A.id = RP_SUM.relId
 SET A.goodReactionPoint = RP_SUM.goodReactionPoint,
 A.badReactionPoint = RP_SUM.badReactionPoint;
 
+# reply 테이블 생성
+CREATE TABLE reply (
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    updateDate DATETIME NOT NULL,
+    memberId INT(10) UNSIGNED NOT NULL,
+    relTypeCode CHAR(50) NOT NULL COMMENT '관련 데이터 타입 코드',
+    relId INT(10) NOT NULL COMMENT '관련 데이터 번호',
+    `body`TEXT NOT NULL
+);
+
+# 2번 회원이 1번 글에 댓글 작성
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글 1';
+
+# 2번 회원이 1번 글에 댓글 작성
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글 2';
+
+# 3번 회원이 1번 글에 댓글 작성
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 3,
+relTypeCode = 'article',
+relId = 1,
+`body` = '댓글 3';
+
+# 3번 회원이 1번 글에 댓글 작성
+INSERT INTO reply
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+relTypeCode = 'article',
+relId = 2,
+`body` = '댓글 4';
 
 ###############################################
 
@@ -230,12 +276,25 @@ SELECT * FROM `board`;
 
 SELECT * FROM reactionPoint;
 
+SELECT * FROM `reply`;
+
+SELECT goodReactionPoint
+FROM article 
+WHERE id = 1
+
 INSERT INTO article
 (
     regDate, updateDate, memberId, boardId, title, `body`
 )
 SELECT NOW(),NOW(), FLOOR(RAND() * 2) + 2, FLOOR(RAND() * 3) + 1, CONCAT('제목_',RAND()), CONCAT('내용_',RAND())
 FROM article;
+
+SELECT IFNULL(SUM(RP.point),0)
+FROM reactionPoint AS RP
+WHERE RP.relTypeCode = 'article'
+AND RP.relId = 3
+AND RP.memberId = 1;
+
 
 UPDATE article 
 SET title = '제목5'
@@ -302,20 +361,20 @@ INNER JOIN `member` AS M
 ON A.memberId = M.id
 LEFT JOIN reactionPoint AS RP
 ON A.id = RP.relId AND RP.relTypeCode = 'article'
-GROUP BY A.id
-ORDER BY A.id DESC;
+group by A.id
+order by A.id desc;
 
 # 서브쿼리
 SELECT A.*,
-IFNULL(SUM(RP.point),0) AS extra__sumReactionPoint,
-IFNULL(SUM(IF(RP.point > 0, RP.point, 0)),0) AS extra__goodReactionPoint,
+ifnull(sum(RP.point),0) as extra__sumReactionPoint,
+IFNULL(SUM(if(RP.point > 0, RP.point, 0)),0) AS extra__goodReactionPoint,
 IFNULL(SUM(IF(RP.point < 0, RP.point, 0)),0) AS extra__badReactionPoint
 FROM (
-    SELECT A.*, M.nickname AS extra__writer 
-    FROM article AS A
-    INNER JOIN `member` AS M
-    ON A.memberId = M.id
-    ) AS A
+    SELECT A.*, M.nickname As extra__writer 
+    from article AS A
+    inner join `member` as M
+    on A.memberId = M.id
+    ) As A
 LEFT JOIN reactionPoint AS RP
 ON A.id = RP.relId AND RP.relTypeCode = 'article'
 GROUP BY A.id
@@ -326,7 +385,7 @@ SELECT A.*, M.nickname AS extra__writer,
 IFNULL(SUM(RP.point),0) AS extra__sumReactionPoint,
 IFNULL(SUM(IF(RP.point > 0, RP.point, 0)),0) AS extra__goodReactionPoint,
 IFNULL(SUM(IF(RP.point < 0, RP.point, 0)),0) AS extra__badReactionPoint
-FROM article AS A
+from article as A
 INNER JOIN `member` AS M
 ON A.memberId = M.id
 LEFT JOIN reactionPoint AS RP
@@ -335,17 +394,17 @@ GROUP BY A.id
 ORDER BY A.id DESC;
 
 
-SELECT *, COUNT(*)
-FROM reactionPoint AS RP
-GROUP BY RP.relTypeCode,RP.relId
+select *, count(*)
+from reactionPoint as RP
+group by RP.relTypeCode,RP.relId
 
-SELECT IF(RP.point > 0, '큼','작음')
+SELECT if(RP.point > 0, '큼','작음')
 FROM reactionPoint AS RP
 GROUP BY RP.relTypeCode,RP.relId
 
 # 각 게시물의 좋아요, 싫어요 갯수
 SELECT RP.relTypeCode, RP.relId,
-SUM(IF(RP.point > 0,RP.point,0)) AS goodReactionPoint,
+sum(if(RP.point > 0,RP.point,0)) as goodReactionPoint,
 SUM(IF(RP.point < 0,RP.point * -1,0)) AS badReactionPoint
 FROM reactionPoint AS RP
 GROUP BY RP.relTypeCode,RP.relId
