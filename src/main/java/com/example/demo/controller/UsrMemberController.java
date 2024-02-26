@@ -129,4 +129,10 @@ public class UsrMemberController {
 
 		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "../member/login");
 	}
+
+	@RequestMapping("/usr/member/myPage")
+	public String showMyPage() {
+
+		return "usr/member/myPage";
+	}
 }
