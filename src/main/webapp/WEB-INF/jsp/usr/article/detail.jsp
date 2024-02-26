@@ -195,42 +195,60 @@
 </script>
 <!-- 댓글 수정 -->
 <script>
-$(document).ready(function() {
-    $('.edit-btn').click(function() {
-    	console.log($(this).data(${reply.id}));
-    	
-        var replyId = $(this).data('reply-id');
-        $('#reply-' + replyId).hide();
-        $('#edit-form-' + replyId).show();
-    });
+function doModifyReply(replyId) {
+// 	if(isNaN(params.memberId) == true){
+// 		if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
+// 			var currentUri = encodeURIComponent(window.location.href);
+// 			window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
+// 		}
+// 		return;
+// 	}
+	let replyBody = $('#reply-text');
+	console.log(replyId);
+	console.log(replyBody);
+	
+	$.ajax({
+		url: '/usr/reply/doModify',
+		type: 'POST',
+		data: {id: replyId, body: ${reply.body }},
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			console.log('data.data1Name : ' + data.data1Name);
+			console.log('data.data1 : ' + data.data1);
+			console.log('data.data2Name : ' + data.data2Name);
+			console.log('data.data2 : ' + data.data2);
+			if(data.resultCode.startsWith('S-')){
+				var likeButton = $('#likeButton');
+				var likeCount = $('#likeCount');
+				var DislikeButton = $('#DislikeButton');
+				var DislikeCount = $('#DislikeCount');
+				
+				if(data.resultCode == 'S-1'){
+					likeButton.toggleClass('btn-outline');
+					likeCount.text(data.data1);
+				}else if(data.resultCode == 'S-2'){
+					DislikeButton.toggleClass('btn-outline');
+					DislikeCount.text(data.data2);
+					likeButton.toggleClass('btn-outline');
+					likeCount.text(data.data1);
+				}else {
+					likeButton.toggleClass('btn-outline');
+					likeCount.text(data.data1);
+				}
+				
+			}else {
+				alert(data.msg);
+			}
+	
+		},
+		error: function(jqXHR,textStatus,errorThrown) {
+			alert('좋아요 오류 발생 : ' + textStatus);
 
-    $('.save-btn').click(function() {
-        var replyId = $(this).data(${reply.id});
-        var replyText = $('#comment-text-' + replyId).val();
-
-        $.ajax({
-            url: '/updateComment', // Spring Controller로 요청을 보냄
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                commentId: commentId,
-                commentText: commentText
-            }),
-            dataType: 'json',
-            success: function(response) {
-                if(response.status === 'success') {
-                    alert('댓글이 수정되었습니다.');
-                    $('#comment-' + commentId + ' p').text(commentText);
-                    $('#edit-form-' + commentId).hide();
-                    $('#comment-' + commentId).show();
-                }
-            },
-            error: function(xhr, status, error) {
-                alert('댓글 수정에 실패했습니다.');
-            }
-        });
-    });
-});
+		}
+		
+	});
+}
 </script>
 
 
@@ -357,8 +375,8 @@ $(document).ready(function() {
 						<td>${reply.regDate.substring(0,10) }</td>
 						<td>
 							<span id="reply-${reply.id }">${reply.body }</span>
-							<div class="edit-form-${reply.id }">
-								<input type="text" value="${reply.body }" class="reply-text" style="display: none;" />
+							<div id="edit-form-${reply.id }" style="display: none;">
+								<input type="text" value="${reply.body }" id="reply-text-${reply.id }" />
 							</div>
 						</td>
 						<td>${reply.extra__writer }</td>
@@ -367,8 +385,8 @@ $(document).ready(function() {
 						<td>
 							<c:if test="${reply.userCanModify }">
 								<%-- 							href="../reply/modify?id=${reply.id }" --%>
-								<a style="white-space: nowrap;" class="edit-btn btn btn-outline">수정</a>
-								<a style="white-space: nowrap; display: none;" class="edit-save btn btn-outline">저장</a>
+								<a style="white-space: nowrap;" class="btn btn-outline" onclick="doModifyReply(${reply.id});">수정</a>
+								<a style="white-space: nowrap; display: none;" class="btn btn-outline">저장</a>
 							</c:if>
 						</td>
 						<td>
