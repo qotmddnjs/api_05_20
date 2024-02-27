@@ -135,4 +135,10 @@ public class UsrMemberController {
 
 		return "usr/member/myPage";
 	}
+
+	@RequestMapping("/usr/member/checkPw")
+	public String showCheckPw() {
+
+		return "usr/member/checkPw";
+	}
 }
