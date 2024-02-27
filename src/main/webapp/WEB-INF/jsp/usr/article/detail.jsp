@@ -195,59 +195,46 @@
 </script>
 <!-- 댓글 수정 -->
 <script>
-function doModifyReply(replyId) {
-// 	if(isNaN(params.memberId) == true){
-// 		if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
-// 			var currentUri = encodeURIComponent(window.location.href);
-// 			window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
-// 		}
-// 		return;
-// 	}
-	let replyBody = $('#reply-text');
+function toggleModifybtn(replyId) {
+	
 	console.log(replyId);
-	console.log(replyBody);
 	
-	$.ajax({
-		url: '/usr/reply/doModify',
-		type: 'POST',
-		data: {id: replyId, body: ${reply.body }},
-		dataType: 'json',
-		success: function(data){
-			console.log(data);
-			console.log('data.data1Name : ' + data.data1Name);
-			console.log('data.data1 : ' + data.data1);
-			console.log('data.data2Name : ' + data.data2Name);
-			console.log('data.data2 : ' + data.data2);
-			if(data.resultCode.startsWith('S-')){
-				var likeButton = $('#likeButton');
-				var likeCount = $('#likeCount');
-				var DislikeButton = $('#DislikeButton');
-				var DislikeCount = $('#DislikeCount');
-				
-				if(data.resultCode == 'S-1'){
-					likeButton.toggleClass('btn-outline');
-					likeCount.text(data.data1);
-				}else if(data.resultCode == 'S-2'){
-					DislikeButton.toggleClass('btn-outline');
-					DislikeCount.text(data.data2);
-					likeButton.toggleClass('btn-outline');
-					likeCount.text(data.data1);
-				}else {
-					likeButton.toggleClass('btn-outline');
-					likeCount.text(data.data1);
-				}
-				
-			}else {
-				alert(data.msg);
-			}
-	
-		},
-		error: function(jqXHR,textStatus,errorThrown) {
-			alert('좋아요 오류 발생 : ' + textStatus);
+	$('#modify-btn-'+replyId).hide();
+	$('#save-btn-'+replyId).show();
+	$('#reply-'+replyId).hide();
+	$('#modify-form-'+replyId).show();
+}
 
-		}
-		
-	});
+function doModifyReply(replyId) {
+	 console.log(replyId); // 디버깅을 위해 replyId를 콘솔에 출력
+	    
+	    // form 요소를 정확하게 선택
+	    var form = $('#modify-form-' + replyId);
+	    console.log(form); // 디버깅을 위해 form을 콘솔에 출력
+
+	    // form 내의 input 요소의 값을 가져옵니다
+	    var text = form.find('input[name="reply-text-' + replyId + '"]').val();
+	    console.log(text); // 디버깅을 위해 text를 콘솔에 출력
+
+	    // form의 action 속성 값을 가져옵니다
+	    var action = form.attr('action');
+	    console.log(action); // 디버깅을 위해 action을 콘솔에 출력
+	
+    $.post({
+    	url: '/usr/reply/doModify', // 수정된 URL
+        type: 'POST', // GET에서 POST로 변경
+        data: { id: replyId, body: text }, // 서버에 전송할 데이터
+        success: function(data) {
+        	$('#modify-form-'+replyId).hide();
+        	$('#reply-'+replyId).text(data);
+        	$('#reply-'+replyId).show();
+        	$('#save-btn-'+replyId).hide();
+        	$('#modify-btn-'+replyId).show();
+        },
+        error: function(xhr, status, error) {
+            alert('댓글 수정에 실패했습니다: ' + error);
+        }
+	})
 }
 </script>
 
@@ -375,9 +362,9 @@ function doModifyReply(replyId) {
 						<td>${reply.regDate.substring(0,10) }</td>
 						<td>
 							<span id="reply-${reply.id }">${reply.body }</span>
-							<div id="edit-form-${reply.id }" style="display: none;">
-								<input type="text" value="${reply.body }" id="reply-text-${reply.id }" />
-							</div>
+							<form method="POST" id="modify-form-${reply.id }" style="display: none;" action="/usr/reply/doModify">
+								<input type="text" value="${reply.body }" name="reply-text-${reply.id }" />
+							</form>
 						</td>
 						<td>${reply.extra__writer }</td>
 						<td>${reply.goodReactionPoint }</td>
@@ -385,8 +372,10 @@ function doModifyReply(replyId) {
 						<td>
 							<c:if test="${reply.userCanModify }">
 								<%-- 							href="../reply/modify?id=${reply.id }" --%>
-								<a style="white-space: nowrap;" class="btn btn-outline" onclick="doModifyReply(${reply.id});">수정</a>
-								<a style="white-space: nowrap; display: none;" class="btn btn-outline">저장</a>
+								<button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id }" style="white-space: nowrap;"
+									class="btn btn-outline">수정</button>
+								<button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;"
+									id="save-btn-${reply.id }" class="btn btn-outline">저장</button>
 							</c:if>
 						</td>
 						<td>

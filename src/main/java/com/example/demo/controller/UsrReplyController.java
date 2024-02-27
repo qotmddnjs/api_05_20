@@ -1,22 +1,13 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.service.ArticleService;
-import com.example.demo.service.BoardService;
 import com.example.demo.service.ReactionPointService;
-import com.example.demo.service.ReplyModifyRequest;
 import com.example.demo.service.ReplyService;
 import com.example.demo.util.Ut;
-import com.example.demo.vo.Article;
-import com.example.demo.vo.Board;
 import com.example.demo.vo.Reply;
 import com.example.demo.vo.ResultData;
 import com.example.demo.vo.Rq;
@@ -89,40 +80,26 @@ public class UsrReplyController {
 
 	@RequestMapping("/usr/reply/doModify")
 	@ResponseBody
-	public String doModify(HttpServletRequest req, ReplyModifyRequest replyModifyreq) {
-
-		Integer id = replyModifyreq.getId();
-		String body = replyModifyreq.getBody();
-
-		System.err.println("id : " + id);
-
-		if (id == null) {
-			// id가 null인 경우, JSON 형식의 에러 메시지 반환
-			return Ut.toJsonString(ResultData.from("F-2", "댓글 Id가 유효하지 않습니다."));
-		}
-
-		System.err.println("dddddddddddddddddddddddddd");
-
+	public String doModify(HttpServletRequest req, int id, String body) {
+		System.err.println(id);
+		System.err.println(body);
 		Rq rq = (Rq) req.getAttribute("rq");
 
 		Reply reply = replyService.getReply(id);
 
 		if (reply == null) {
-			// 해당 ID의 댓글이 존재하지 않는 경우
-			return Ut.toJsonString(ResultData.from("F-1", Ut.f("%d번 댓글은 존재하지 않습니다", id)));
+			return Ut.jsHistoryBack("F-1", Ut.f("%d번 댓글은 존재하지 않습니다", id));
 		}
 
 		ResultData loginedMemberCanModifyRd = replyService.userCanModify(rq.getLoginedMemberId(), reply);
 
 		if (loginedMemberCanModifyRd.isSuccess()) {
 			replyService.modifyReply(id, body);
-			// 성공 응답 반환
-			return Ut.toJsonString(
-					ResultData.from("S-1", "댓글이 수정되었습니다.", "redirectUrl", "../article/detail?id=" + reply.getRelId()));
-		} else {
-			// 수정 권한이 없는 경우
-			return Ut.toJsonString(loginedMemberCanModifyRd);
 		}
+
+		reply = replyService.getReply(id);
+
+		return reply.getBody();
 	}
 
 }
