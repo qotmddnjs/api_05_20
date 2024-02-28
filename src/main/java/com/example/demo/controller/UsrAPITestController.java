@@ -11,5 +11,11 @@ public class UsrAPITestController {
 
 		return "/usr/home/APITest";
 	}
+	
+	@RequestMapping("/usr/home/APITest2")
+	public String APITest2() {
+
+		return "/usr/home/APITest2";
+	}
 
 }
