@@ -18,7 +18,7 @@
 		<button onclick="panTo()">지도 중심좌표 대전으로 이동시키기</button>
 	</p>
 
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 API 키"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be8f45543904c09799bb532a4c2490e6"></script>
 	<script>
 		var lat;
 		var lon;
@@ -71,6 +71,17 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(lat, lon); 
+
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
 	</script>
 </body>
 </html>
