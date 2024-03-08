@@ -338,7 +338,7 @@ function doModifyReply(replyId) {
 		</form>
 	</c:if>
 	<c:if test="${!rq.isLogined() }">
-		<a class="btn btn-outline btn-ghost" href="../member/login">LOGIN</a> 하고 댓글 써
+		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a> 하고 댓글 써
 	</c:if>
 	<div class="mx-auto">
 		<h2>댓글 리스트(${repliesCount })</h2>

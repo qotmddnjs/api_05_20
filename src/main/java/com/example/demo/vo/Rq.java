@@ -110,6 +110,14 @@ public class Rq {
 
 	}
 
+	public String getLoginUri() {
+		return "../member/login?afterLoginUri=" + getAfterLoginUri();
+	}
+
+	private String getAfterLoginUri() {
+		return getEncodedCurrentUri();
+	}
+
 	public String getEncodedCurrentUri() {
 		return Ut.getEncodedCurrentUri(getCurrentUri());
 	}
