@@ -20,6 +20,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+
 	<header>
 		<div class="h-20 flex mx-auto items-center text-3xl">
 			<a href="/">LOGO</a>
