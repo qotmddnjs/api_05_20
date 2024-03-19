@@ -30,6 +30,13 @@
 							<input class="btn btn-outline btn-info" type="submit" value="로그인" />
 						</td>
 					</tr>
+					<tr>
+						<th></th>
+						<td>
+							<a class="btn btn-active btn-ghost" href="${rq.findLoginIdUri }">아이디 찾기</a>
+							<a class="btn btn-ghost btn-active" href="${rq.findLoginPwUri }">비밀번호찾기</a>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</form>
