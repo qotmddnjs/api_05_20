@@ -75,7 +75,7 @@ loginPw = 'test1',
 `name` = '회원1',
 nickname = '회원1',
 cellphoneNum = '01043214321',
-email = 'abcde@gmail.com';
+email = 'axdswww12@gmail.com';
 
 # (일반)
 INSERT INTO `member`
