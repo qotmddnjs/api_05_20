@@ -533,204 +533,56 @@
 </script>
 
 
-<!-- <link rel="stylesheet" type="text/css" href="/kobis/web/comm/commcss/autoLogout.css">
-
-
-
-
-			 	
-			 		
-            <form action="findTheaterSchedule.do" id="searchForm" name="searchForm" method="post">            	
-            	<input type="hidden" name="CSRFToken" value="8GfJg1v2Zy7GkgC3PHWZBx_oIFA75FQzvmk3MzH5Yl0" autocomplete="off">
-				<input type="hidden" id="wideareaCd" name="wideareaCd" value="0105001" autocomplete="off">
-				<input type="hidden" id="basareaCd" name="basareaCd" value="" autocomplete="off">
-				<input type="hidden" id="theaCd" name="theaCd" value="001123" autocomplete="off">
-				<input type="hidden" id="showDt" name="showDt" value="20240314" autocomplete="off">
-			</form>
-            <div class="schedule">
-            	<div class="fl step1 on">해당 단계일 때 .on 추가
-                	<strong>광역</strong>
-                    <ul>
-                    	
-							<li wideareacd="0105001" onclick="selectedWidearea(this, '0105001');">
-							<input type="radio" name="step1" id="step1_1" autocomplete="off">
-							<label for="step1_1">서울시</label>
-							</li>
-						
-							<li wideareacd="0105002" onclick="selectedWidearea(this, '0105002');">
-							<input type="radio" name="step1" id="step1_2" autocomplete="off">
-							<label for="step1_2">경기도</label>
-							</li>
-						
-							<li wideareacd="0105003" onclick="selectedWidearea(this, '0105003');">
-							<input type="radio" name="step1" id="step1_3" autocomplete="off">
-							<label for="step1_3">강원도</label>
-							</li>
-						
-							<li wideareacd="0105004" onclick="selectedWidearea(this, '0105004');">
-							<input type="radio" name="step1" id="step1_4" autocomplete="off">
-							<label for="step1_4">충청북도</label>
-							</li>
-						
-							<li wideareacd="0105005" onclick="selectedWidearea(this, '0105005');">
-							<input type="radio" name="step1" id="step1_5" autocomplete="off">
-							<label for="step1_5">충청남도</label>
-							</li>
-						
-							<li wideareacd="0105006" onclick="selectedWidearea(this, '0105006');">
-							<input type="radio" name="step1" id="step1_6" autocomplete="off">
-							<label for="step1_6">경상북도</label>
-							</li>
-						
-							<li wideareacd="0105007" onclick="selectedWidearea(this, '0105007');">
-							<input type="radio" name="step1" id="step1_7" autocomplete="off">
-							<label for="step1_7">경상남도</label>
-							</li>
-						
-							<li wideareacd="0105008" onclick="selectedWidearea(this, '0105008');">
-							<input type="radio" name="step1" id="step1_8" autocomplete="off">
-							<label for="step1_8">전라북도</label>
-							</li>
-						
-							<li wideareacd="0105009" onclick="selectedWidearea(this, '0105009');">
-							<input type="radio" name="step1" id="step1_9" autocomplete="off">
-							<label for="step1_9">전라남도</label>
-							</li>
-						
-							<li wideareacd="0105010" onclick="selectedWidearea(this, '0105010');">
-							<input type="radio" name="step1" id="step1_10" autocomplete="off">
-							<label for="step1_10">제주도</label>
-							</li>
-						
-							<li wideareacd="0105011" onclick="selectedWidearea(this, '0105011');">
-							<input type="radio" name="step1" id="step1_11" autocomplete="off">
-							<label for="step1_11">부산시</label>
-							</li>
-						
-							<li wideareacd="0105012" onclick="selectedWidearea(this, '0105012');">
-							<input type="radio" name="step1" id="step1_12" autocomplete="off">
-							<label for="step1_12">대구시</label>
-							</li>
-						
-							<li wideareacd="0105013" onclick="selectedWidearea(this, '0105013');">
-							<input type="radio" name="step1" id="step1_13" autocomplete="off">
-							<label for="step1_13">대전시</label>
-							</li>
-						
-							<li wideareacd="0105014" onclick="selectedWidearea(this, '0105014');">
-							<input type="radio" name="step1" id="step1_14" autocomplete="off">
-							<label for="step1_14">울산시</label>
-							</li>
-						
-							<li wideareacd="0105015" onclick="selectedWidearea(this, '0105015');">
-							<input type="radio" name="step1" id="step1_15" autocomplete="off">
-							<label for="step1_15">인천시</label>
-							</li>
-						
-							<li wideareacd="0105016" onclick="selectedWidearea(this, '0105016');">
-							<input type="radio" name="step1" id="step1_16" autocomplete="off">
-							<label for="step1_16">광주시</label>
-							</li>
-						
-							<li wideareacd="0105017" onclick="selectedWidearea(this, '0105017');">
-							<input type="radio" name="step1" id="step1_17" autocomplete="off">
-							<label for="step1_17">세종시</label>
-							</li>
-						
-                        <li><input type="radio" name="step1" id="step1_1" /><label for="step1_1">서울시</label></li>
-                        <li><input type="radio" name="step1" id="step1_2" /><label for="step1_2">경기도</label></li>
-                        <li><input type="radio" name="step1" id="step1_3" /><label for="step1_3">강원도</label></li>
-                        <li><input type="radio" name="step1" id="step1_4" /><label for="step1_4">충청북도</label></li>
-                        <li><input type="radio" name="step1" id="step1_5" /><label for="step1_5">충청남도</label></li>
-                        <li><input type="radio" name="step1" id="step1_6" /><label for="step1_6">경상북도</label></li>
-                        <li><input type="radio" name="step1" id="step1_7" /><label for="step1_7">경상남도</label></li>
-                        <li><input type="radio" name="step1" id="step1_8" /><label for="step1_8">전라북도</label></li>
-                        <li><input type="radio" name="step1" id="step1_9" /><label for="step1_9">전라남도</label></li>
-                        <li><input type="radio" name="step1" id="step1_10" /><label for="step1_10">제주도</label></li>
-                        <li><input type="radio" name="step1" id="step1_11" /><label for="step1_11">부산시</label></li>
-                        <li><input type="radio" name="step1" id="step1_12" /><label for="step1_12">대구시</label></li>
-                        <li><input type="radio" name="step1" id="step1_13" /><label for="step1_13">대전시</label></li>
-                        <li><input type="radio" name="step1" id="step1_14" /><label for="step1_14">울산시</label></li>
-                        <li><input type="radio" name="step1" id="step1_15" /><label for="step1_15">인천시</label></li>
-                        <li><input type="radio" name="step1" id="step1_16" /><label for="step1_16">광주시</label></li>
-                        <li><input type="radio" name="step1" id="step1_17" /><label for="step1_17">세종시</label></li>
-                    </ul>
-                </div>
-                <div class="fl step2 on">해당 단계일 때 .on 추가
-                	<strong>기초</strong>
-                    <ul>
-                        <li><input type="radio" name="step2" id="step2_1" /><label for="step2_1">강남구</label></li>
-                        <li><input type="radio" name="step2" id="step2_2" /><label for="step2_2">강동구</label></li>
-                        <li><input type="radio" name="step2" id="step2_3" /><label for="step2_3">강북구</label></li>
-                        <li><input type="radio" name="step2" id="step2_4" /><label for="step2_4">강서구</label></li>
-                        <li><input type="radio" name="step2" id="step2_5" /><label for="step2_5">관악구</label></li>
-                        <li><input type="radio" name="step2" id="step2_6" /><label for="step2_6">광진구</label></li>
-                        <li><input type="radio" name="step2" id="step2_7" /><label for="step2_7">구로구</label></li>
-                        <li><input type="radio" name="step2" id="step2_8" /><label for="step2_8">금천구</label></li>
-                        <li><input type="radio" name="step2" id="step2_9" /><label for="step2_9">노원구</label></li>
-                        <li><input type="radio" name="step2" id="step2_10" /><label for="step2_10">도봉구</label></li>
-                        <li><input type="radio" name="step2" id="step2_11" /><label for="step2_11">동대문구</label></li>
-                        <li><input type="radio" name="step2" id="step2_12" /><label for="step2_12">동작구</label></li>
-                        <li><input type="radio" name="step2" id="step2_13" /><label for="step2_13">마포구</label></li>
-                        <li><input type="radio" name="step2" id="step2_14" /><label for="step2_14">서대문구</label></li>
-                        <li><input type="radio" name="step2" id="step2_15" /><label for="step2_15">서초구</label></li>
-                        <li><input type="radio" name="step2" id="step2_16" /><label for="step2_16">성동구</label></li>
-                        <li><input type="radio" name="step2" id="step2_17" /><label for="step2_17">성북구</label></li>
-                        <li><input type="radio" name="step2" id="step2_18" /><label for="step2_18">송파구</label></li>
-                        <li><input type="radio" name="step2" id="step2_19" /><label for="step2_19">양천구</label></li>
-                        <li><input type="radio" name="step2" id="step2_20" /><label for="step2_20">영등포구</label></li>
-                        <li><input type="radio" name="step2" id="step2_21" /><label for="step2_21">용산구</label></li>
-                        <li><input type="radio" name="step2" id="step2_22" /><label for="step2_22">은평구</label></li>
-                        <li><input type="radio" name="step2" id="step2_23" /><label for="step2_23">종로구</label></li>
-                        <li><input type="radio" name="step2" id="step2_24" /><label for="step2_24">중구</label></li>
-                        <li><input type="radio" name="step2" id="step2_25" /><label for="step2_25">중랑구</label></li>
-                    </ul>
-                    <ul id="sBasareaCd"><li basareacd="010600101" onclick="selectedBasarea($(this), '010600101'); " class="current"><input type="radio" name="step2" id="step2_1"><label for="step2_1">강남구</label></li><li basareacd="010600102" onclick="selectedBasarea($(this), '010600102'); "><input type="radio" name="step2" id="step2_2"><label for="step2_2">강동구</label></li><li basareacd="010600103" onclick="selectedBasarea($(this), '010600103'); "><input type="radio" name="step2" id="step2_3"><label for="step2_3">강북구</label></li><li basareacd="010600104" onclick="selectedBasarea($(this), '010600104'); "><input type="radio" name="step2" id="step2_4"><label for="step2_4">강서구</label></li><li basareacd="010600105" onclick="selectedBasarea($(this), '010600105'); "><input type="radio" name="step2" id="step2_5"><label for="step2_5">관악구</label></li><li basareacd="010600106" onclick="selectedBasarea($(this), '010600106'); "><input type="radio" name="step2" id="step2_6"><label for="step2_6">광진구</label></li><li basareacd="010600107" onclick="selectedBasarea($(this), '010600107'); "><input type="radio" name="step2" id="step2_7"><label for="step2_7">구로구</label></li><li basareacd="010600108" onclick="selectedBasarea($(this), '010600108'); "><input type="radio" name="step2" id="step2_8"><label for="step2_8">금천구</label></li><li basareacd="010600109" onclick="selectedBasarea($(this), '010600109'); "><input type="radio" name="step2" id="step2_9"><label for="step2_9">노원구</label></li><li basareacd="010600110" onclick="selectedBasarea($(this), '010600110'); "><input type="radio" name="step2" id="step2_10"><label for="step2_10">도봉구</label></li><li basareacd="010600111" onclick="selectedBasarea($(this), '010600111'); "><input type="radio" name="step2" id="step2_11"><label for="step2_11">동대문구</label></li><li basareacd="010600112" onclick="selectedBasarea($(this), '010600112'); "><input type="radio" name="step2" id="step2_12"><label for="step2_12">동작구</label></li><li basareacd="010600113" onclick="selectedBasarea($(this), '010600113'); "><input type="radio" name="step2" id="step2_13"><label for="step2_13">마포구</label></li><li basareacd="010600114" onclick="selectedBasarea($(this), '010600114'); "><input type="radio" name="step2" id="step2_14"><label for="step2_14">서대문구</label></li><li basareacd="010600115" onclick="selectedBasarea($(this), '010600115'); "><input type="radio" name="step2" id="step2_15"><label for="step2_15">서초구</label></li><li basareacd="010600116" onclick="selectedBasarea($(this), '010600116'); "><input type="radio" name="step2" id="step2_16"><label for="step2_16">성동구</label></li><li basareacd="010600117" onclick="selectedBasarea($(this), '010600117'); "><input type="radio" name="step2" id="step2_17"><label for="step2_17">성북구</label></li><li basareacd="010600118" onclick="selectedBasarea($(this), '010600118'); "><input type="radio" name="step2" id="step2_18"><label for="step2_18">송파구</label></li><li basareacd="010600119" onclick="selectedBasarea($(this), '010600119'); "><input type="radio" name="step2" id="step2_19"><label for="step2_19">양천구</label></li><li basareacd="010600120" onclick="selectedBasarea($(this), '010600120'); "><input type="radio" name="step2" id="step2_20"><label for="step2_20">영등포구</label></li><li basareacd="010600121" onclick="selectedBasarea($(this), '010600121'); "><input type="radio" name="step2" id="step2_21"><label for="step2_21">용산구</label></li><li basareacd="010600122" onclick="selectedBasarea($(this), '010600122'); "><input type="radio" name="step2" id="step2_22"><label for="step2_22">은평구</label></li><li basareacd="010600123" onclick="selectedBasarea($(this), '010600123'); "><input type="radio" name="step2" id="step2_23"><label for="step2_23">종로구</label></li><li basareacd="010600124" onclick="selectedBasarea($(this), '010600124'); "><input type="radio" name="step2" id="step2_24"><label for="step2_24">중구</label></li><li basareacd="010600125" onclick="selectedBasarea($(this), '010600125'); "><input type="radio" name="step2" id="step2_25"><label for="step2_25">중랑구</label></li></ul>
-                </div>
-                <div class="fl step3 on">해당 단계일 때 .on 추가
-                	<strong>영화상영관</strong>
-                    <ul id="sTheaCd"><li theacd="001123" onclick="selectedTheater($(this), '001123'); " class="current"><input type="radio" name="step3" id="step3_1"><label for="step3_1">CGV 강남</label></li><li theacd="001111" onclick="selectedTheater($(this), '001111'); "><input type="radio" name="step3" id="step3_2"><label for="step3_2">CGV 압구정</label></li><li theacd="001186" onclick="selectedTheater($(this), '001186'); "><input type="radio" name="step3" id="step3_3"><label for="step3_3">CGV 청담씨네시티</label></li><li theacd="001128" onclick="selectedTheater($(this), '001128'); "><input type="radio" name="step3" id="step3_4"><label for="step3_4">CINE de CHEF 압구정</label></li><li theacd="001277" onclick="selectedTheater($(this), '001277'); "><input type="radio" name="step3" id="step3_5"><label for="step3_5">롯데시네마 도곡</label></li><li theacd="001071" onclick="selectedTheater($(this), '001071'); "><input type="radio" name="step3" id="step3_6"><label for="step3_6">롯데시네마 브로드웨이(신사)</label></li><li theacd="001169" onclick="selectedTheater($(this), '001169'); "><input type="radio" name="step3" id="step3_7"><label for="step3_7">메가박스 강남대로(씨티)</label></li><li theacd="001003" onclick="selectedTheater($(this), '001003'); "><input type="radio" name="step3" id="step3_8"><label for="step3_8">메가박스 코엑스</label></li><li theacd="001293" onclick="selectedTheater($(this), '001293'); "><input type="radio" name="step3" id="step3_9"><label for="step3_9">씨티극장</label></li><li theacd="001242" onclick="selectedTheater($(this), '001242'); "><input type="radio" name="step3" id="step3_10"><label for="step3_10">픽처하우스</label></li></ul>
-                </div>
-                <div class="ovf step4 on">해당 단계일 때 .on 추가
-                	<div class="date">
-                    	<p><strong>3월 14일</strong></p>
-                        <a href="javascript:;" class="prev" id="previous"><span class="ico_comm">이전</span></a>
-                        <a href="javascript:;" class="next" id="next"><span class="ico_comm">다음</span></a>
-                    </div>
-                    <ul id="schedule">
-                    <li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','19970037')">비트(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_1_1" disabled="disabled"><label for="step4_1_1" style="cursor:default;">23:45</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_2_1" disabled="disabled"><label for="step4_2_1" style="cursor:default;">26:10</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_3_1" disabled="disabled"><label for="step4_3_1" style="cursor:default;">16:45</label><input type="radio" name="step4" id="step4_3_2" disabled="disabled"><label for="step4_3_2" style="cursor:default;">20:20</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20236732')">가여운 것들(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_4_1" disabled="disabled"><label for="step4_4_1" style="cursor:default;">11:30</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20247053')">메이 디셈버(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_5_1" disabled="disabled"><label for="step4_5_1" style="cursor:default;">09:00</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20247198')">마담 웹(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_6_1" disabled="disabled"><label for="step4_6_1" style="cursor:default;">14:20</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','19980003')">태양은 없다(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_7_1" disabled="disabled"><label for="step4_7_1" style="cursor:default;">22:00</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20234789')">패스트 라이브즈(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_8_1" disabled="disabled"><label for="step4_8_1" style="cursor:default;">10:10</label><input type="radio" name="step4" id="step4_8_2" disabled="disabled"><label for="step4_8_2" style="cursor:default;">14:50</label><input type="radio" name="step4" id="step4_8_3" disabled="disabled"><label for="step4_8_3" style="cursor:default;">19:40</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20236732')">가여운 것들(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_9_1" disabled="disabled"><label for="step4_9_1" style="cursor:default;">24:20</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20247053')">메이 디셈버(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_10_1" disabled="disabled"><label for="step4_10_1" style="cursor:default;">17:05</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20247076')">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_11_1" disabled="disabled"><label for="step4_11_1" style="cursor:default;">12:30</label></div></li><li><div class="tit"><span class="screen">03관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_12_1" disabled="disabled"><label for="step4_12_1" style="cursor:default;">09:10</label><input type="radio" name="step4" id="step4_12_2" disabled="disabled"><label for="step4_12_2" style="cursor:default;">11:50</label><input type="radio" name="step4" id="step4_12_3" disabled="disabled"><label for="step4_12_3" style="cursor:default;">14:40</label><input type="radio" name="step4" id="step4_12_4" disabled="disabled"><label for="step4_12_4" style="cursor:default;">17:25</label><input type="radio" name="step4" id="step4_12_5" disabled="disabled"><label for="step4_12_5" style="cursor:default;">20:10</label><input type="radio" name="step4" id="step4_12_6" disabled="disabled"><label for="step4_12_6" style="cursor:default;">22:50</label><input type="radio" name="step4" id="step4_12_7" disabled="disabled"><label for="step4_12_7" style="cursor:default;">25:30</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20234675')">파묘(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_13_1" disabled="disabled"><label for="step4_13_1" style="cursor:default;">12:40</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_14_1" disabled="disabled"><label for="step4_14_1" style="cursor:default;">09:20</label><input type="radio" name="step4" id="step4_14_2" disabled="disabled"><label for="step4_14_2" style="cursor:default;">15:30</label><input type="radio" name="step4" id="step4_14_3" disabled="disabled"><label for="step4_14_3" style="cursor:default;">21:20</label><input type="radio" name="step4" id="step4_14_4" disabled="disabled"><label for="step4_14_4" style="cursor:default;">24:40</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20247198')">마담 웹(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_15_1" disabled="disabled"><label for="step4_15_1" style="cursor:default;">18:50</label></div></li><li><div class="tit"><span class="screen">05관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_16_1" disabled="disabled"><label for="step4_16_1" style="cursor:default;">10:30</label><input type="radio" name="step4" id="step4_16_2" disabled="disabled"><label for="step4_16_2" style="cursor:default;">13:20</label><input type="radio" name="step4" id="step4_16_3" disabled="disabled"><label for="step4_16_3" style="cursor:default;">16:10</label><input type="radio" name="step4" id="step4_16_4" disabled="disabled"><label for="step4_16_4" style="cursor:default;">19:00</label><input type="radio" name="step4" id="step4_16_5" disabled="disabled"><label for="step4_16_5" style="cursor:default;">21:45</label><input type="radio" name="step4" id="step4_16_6" disabled="disabled"><label for="step4_16_6" style="cursor:default;">24:30</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_17_1" disabled="disabled"><label for="step4_17_1" style="cursor:default;">12:00</label><input type="radio" name="step4" id="step4_17_2" disabled="disabled"><label for="step4_17_2" style="cursor:default;">22:10</label><input type="radio" name="step4" id="step4_17_3" disabled="disabled"><label for="step4_17_3" style="cursor:default;">25:25</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20236488')">밥 말리: 원 러브(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_18_1" disabled="disabled"><label for="step4_18_1" style="cursor:default;">09:40</label><input type="radio" name="step4" id="step4_18_2" disabled="disabled"><label for="step4_18_2" style="cursor:default;">15:20</label><input type="radio" name="step4" id="step4_18_3" disabled="disabled"><label for="step4_18_3" style="cursor:default;">19:50</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20247076')">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_19_1" disabled="disabled"><label for="step4_19_1" style="cursor:default;">17:40</label></div></li></ul>
-                </div>
-           
-            </div>
-	
-      // container
-	
-
-Global site tag (gtag.js) - Google Analytics
-<script async src="/kobis/web/comm/commjs/gtag.js?id=UA-127072686-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-127072686-1');
-</script>
-
-AceCounter Log Gathering Script V.8.0.AMZ2019080601
- <script language='javascript'>
-	var _AceGID=(function(){var Inf=['gtt6.acecounter.com','8080','AB2A31560820885','AW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src ="https://"+ Inf[0] +'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
-	var _AceCounter=(function(){var G=_AceGID;var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];if(G.o!=0){var _A=G.val[G.o-1];var _G=(_A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];var _U=(_A[5]).replace(/\,/g,'_');_sc.src='https:'+'//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime());_sm.parentNode.insertBefore(_sc,_sm);return _sc.src;}})();
-</script>
-<noscript><img src='//gtt6.acecounter.com:8080/?uid=AB2A31560820885&je=n&' border='0' width='0' height='0' alt=''></noscript>	
-AceCounter Log Gathering Script End
-
-<script language='javascript'>
-function familySite(){
-   if (document.getElementById("familySite").value == "a2") {
-	   window.open ("https://www.kofic.or.kr");
-   } else if (document.getElementById("familySite").value == "a3") {
-	   window.open ("https://www.kobis.or.kr/kobisopenapi/homepg/main/main.do");
-   }
-} -->
+        $(document).ready(function() {
+            // 여러분의 OpenWeatherMap API 키
+            var apiKey = 'b342d193e9fb91052ba05619ca90dc8b';
+            // 현재 날씨 데이터를 가져오기 위한 API 엔드포인트
+            var apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+            var cityNameKorean = '대전'; // 도시 이름 한국어 표시용
+            var cityNameEnglish = 'daejeon'; // 도시 이름 영어 API 요청용
+            var params = {
+                q: cityNameEnglish,
+                appid: apiKey,
+                units: 'metric'
+            };
+            // 날씨 데이터를 가져오기 위한 AJAX 요청
+            $.ajax({
+                url: apiUrl,
+                data: params,
+                dataType: 'json',
+                success: function(data) {
+                    // 날씨 아이콘 처리
+                    var weatherIcon = data.weather[0].icon;
+                    var iconUrl = 'http://openweathermap.org/img/wn/' + weatherIcon + '.png';
+                    $('.weather-icon').html('<img src="' + iconUrl + '">');
+                    // 온도 처리
+                    var temperature = Math.round(data.main.temp);
+                    $('.temperature').text(temperature + '°C');
+                    
+                    // 습도 처리
+                    var humidity = data.main.humidity;
+                    $('.humidity').text('습도: ' + humidity + '%');
+                    // 풍속 처리
+                    var windSpeed = data.wind.speed;
+                    $('.wind-speed').text('풍속: ' + windSpeed + 'm/s');
+                    // 도시 이름 처리
+                    $('.city').text(cityNameKorean);
+                },
+                error: function(xhr, status, error) {
+                    // 오류 처리
+                    console.error('날씨 데이터 가져오기 오류:', error);
+                }
+            });
+        });
+    </script>
+     <div class="weater-container-box" style="margin-left: 5%; margin-top: 7%;">
+        <div class="city" style="font-size: 30px; font-weight: 700;"></div>
+        <div class="weather-icon"></div>
+        <div class="temperature" style="font-size: 30px; color: red; margin-top: 40px;"></div>
+        <div class="humidity" style="font-size: 18px; margin-top: 10px;"></div>
+       <div class="wind-speed" style="font-size: 18px; margin-top: 10px;"></div>
+</div>
 </script>
 <!-- AceCounter Log Gathering Script End -->
 	
